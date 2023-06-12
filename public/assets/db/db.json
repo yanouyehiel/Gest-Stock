@@ -1,0 +1,29 @@
+{
+    "users": [
+        {
+            "username": "Yanou",
+            "password": "yehiel"
+        },
+        {
+            "username": "Djawa",
+            "password": "yedida"
+        },
+        {
+            "username": "Tonmbiak",
+            "password": "armel"
+        },
+        {
+            "username": "Mbana",
+            "password": "ines"
+        },
+        {
+            "username": "Nana",
+            "password": "chantal"
+        },
+        {
+            "username": "Djendji",
+            "password": "christianne"
+        }
+    ],
+    "produits": []
+}

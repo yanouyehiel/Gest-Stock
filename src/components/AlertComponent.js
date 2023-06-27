@@ -1,11 +1,11 @@
 import Alert from 'react-bootstrap/Alert';
 
-function AlertComponent(variant, message) {
+function AlertComponent(props) {
 
 
     return (
         <>
-            <Alert key={variant} variant={variant}>{message}</Alert>
+            <Alert key={props.variant} variant={props.variant} dismissible>{props.message}</Alert>
         </>
     )
 }

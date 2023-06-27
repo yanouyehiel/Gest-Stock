@@ -1,2 +1,2 @@
-# Gest-Stock
-Application ReactJs de gestion du stock
+# app-todo-list
+Application de gestion des tâches à accomplir

@@ -1,17 +1,27 @@
 import React from 'react';
 
-function Entree() {
-
+function Entree({entree}) {
+    const dateParser = (date) => {
+        let newDate = new Date(date).toLocaleDateString('fr-FR', {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric"
+        });
+        return newDate;
+    };
 
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>Lorem</td>
-                <td>Lorem</td>
-                <td>Lorem</td>
-                <td>Lorem</td>
-                <td>Lorem</td>
+                <td>{entree.id}</td>
+                <td>{entree.nom}</td>
+                <td>{entree.prix} FCFA</td>
+                <td>{entree.quantite}</td>
+                <td>{entree.description}</td>
+                <td>{dateParser(entree.date)}</td>
             </tr>
         </>
     )

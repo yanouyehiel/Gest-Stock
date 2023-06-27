@@ -1,18 +1,28 @@
 
+function Vente({vente}) {
 
-function Vente() {
-
+    const dateParser = (date) => {
+        let newDate = new Date(date).toLocaleDateString('fr-FR', {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric"
+        });
+        return newDate;
+    };
 
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>ggi9j0i9j</td>
-                <td>ggi9j0i9j</td>
-                <td>ggi9j0i9j</td>
-                <td>ggi9j0i9j</td>
-                <td>ggi9j0i9j</td>
-                <td>Mercredi 31 Mai 2023</td>
+                <td>{vente.id}</td>
+                <td>{vente.nom}</td>
+                <td>{vente.prix_unitaire}</td>
+                <td>{vente.quantite}</td>
+                <td>{vente.prix_unitaire * vente.quantite} FCFA</td>
+                <td>{vente.vendeur}</td>
+                <td>{dateParser(vente.date)}</td>
             </tr>
         </>
     )

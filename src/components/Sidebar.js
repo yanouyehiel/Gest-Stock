@@ -24,7 +24,7 @@ function Sidebar() {
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="/entrees">
                     <i className="bi bi-card-list"></i>
-                    <span>Gerer les entrees</span>
+                    <span>Gerer les entrées</span>
                     </a>
                 </li>
 

@@ -1,31 +1,133 @@
 {
-    "users": [
-        {
-            "username": "Yanou",
-            "password": "yehiel"
-        },
-        {
-            "username": "Djawa",
-            "password": "yedida"
-        },
-        {
-            "username": "Tonmbiak",
-            "password": "armel"
-        },
-        {
-            "username": "Mbana",
-            "password": "ines"
-        },
-        {
-            "username": "Nana",
-            "password": "chantal"
-        },
-        {
-            "username": "Djendji",
-            "password": "christianne"
-        }
-    ],
-    "produits": [],
-    "entrees": [],
-    "sorties": []
+  "users": [
+    {
+      "username": "Yanou",
+      "password": "yehiel"
+    },
+    {
+      "username": "Djawa",
+      "password": "yedida"
+    },
+    {
+      "username": "Tonmbiak",
+      "password": "armel"
+    },
+    {
+      "username": "Mbana",
+      "password": "ines"
+    },
+    {
+      "username": "Nana",
+      "password": "chantal"
+    },
+    {
+      "username": "Djendji",
+      "password": "christianne"
+    }
+  ],
+  "produits": [
+    {
+      "nom": "Lait de toilete Nivea",
+      "stock": "9",
+      "description": "How to use\nForm\nin\nreact-bootstrap",
+      "date": 1686570577977,
+      "id": 2
+    },
+    {
+      "nom": "Déodorant Fa Men",
+      "stock": "7",
+      "description": "C'est un déo qui donne une bonne senteur à tous les vêtements d'un homme pendant une durée de 24h. ",
+      "date": 1686661142530,
+      "id": 3
+    },
+    {
+      "nom": "Gel douche Balea",
+      "prix": "4500",
+      "stock": "5",
+      "description": "Gel douche ultra adoucissant pour la femme adulte. Appliquez ce gel lorsque vous prenez votre bain.",
+      "date": 1686661271561,
+      "id": 4
+    },
+    {
+      "nom": "Sensodyne Multi Care",
+      "stock": "13",
+      "description": "Patte dentifrice Sensodyne. Procure une dentition saine",
+      "date": 1686664366762,
+      "id": 5
+    },
+    {
+      "nom": "Nivea Men",
+      "stock": "25",
+      "description": "Déodorant Nivea pour hommes",
+      "date": 1686664489609,
+      "id": 6
+    },
+    {
+      "nom": "Mangue",
+      "stock": "25",
+      "description": "Description",
+      "date": 1687027312973,
+      "id": 7
+    }
+  ],
+  "entrees": [
+    {
+      "nom": "Nivea Men",
+      "prix": "4500",
+      "quantite": "1",
+      "description": "Cette femme a tellement discuté le prix.",
+      "date": 1686675904603,
+      "id": 9
+    },
+    {
+      "nom": "Lait de toilete Nivea",
+      "prix": "15000",
+      "quantite": "1",
+      "description": "RAS",
+      "date": 1686677323035,
+      "id": 10
+    },
+    {
+      "nom": "Sensodyne Multi Care",
+      "prix": "6300",
+      "quantite": "3",
+      "description": "tûç(àçyu(àçyu(y(",
+      "date": 1686678896054,
+      "id": 11
+    },
+    {
+      "nom": "Mangue",
+      "prix": "250",
+      "quantite": "30",
+      "description": "",
+      "date": 1687027384074,
+      "id": 12
+    }
+  ],
+  "ventes": [
+    {
+      "nom": "Lait de toilete Nivea",
+      "prix_unitaire": 2550,
+      "quantite": 3,
+      "vendeur": "Test User",
+      "date": 1686686109764,
+      "id": 1
+    },
+    {
+      "nom": "Sensodyne Multi Care",
+      "prix_unitaire": 5700,
+      "quantite": 2,
+      "vendeur": "Test User",
+      "date": 1686686248377,
+      "id": 2
+    },
+    {
+      "nom": "Mangue",
+      "prix_unitaire": 300,
+      "quantite": 2,
+      "vendeur": "Test User",
+      "date": 1687027456705,
+      "id": 3
+    }
+  ]
 }

@@ -1,7 +1,13 @@
-
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+    const navigate = useNavigate()
+    const user = JSON.parse(window.localStorage.getItem('gest-stock'));
 
+    const logout = () => {
+        window.localStorage.removeItem('gest-stock')
+        navigate('/')
+    }
 
     return (
         <header id="header" className="header fixed-top d-flex align-items-center">
@@ -33,7 +39,7 @@ function Header() {
                     <li className="nav-item dropdown pe-3">
 
                         <a className="nav-link nav-profile d-flex align-items-center pe-0" href="/" data-bs-toggle="dropdown">
-                            <img src="./images/<?= $user['logo'] ?>" alt="Profile" className="rounded-circle" />
+                            <img src="/" alt="Profile" className="rounded-circle" />
                             <span className="d-none d-md-block dropdown-toggle ps-2"></span>
                         </a>
 
@@ -47,27 +53,17 @@ function Header() {
                             </li>
 
                             <li>
-                                <a className="dropdown-item d-flex align-items-center" href="profile.php">
+                                <a className="dropdown-item d-flex align-items-center" href="/home">
                                     <i className="bi bi-person"></i>
-                                    <span>Mon profile</span>
+                                    <span>{user.username}</span>
                                 </a>
                             </li>
                             <li>
                                 <hr className="dropdown-divider" />
                             </li>
 
-                            <li>
-                                <a className="dropdown-item d-flex align-items-center" href="profile.php">
-                                    <i className="bi bi-gear"></i>
-                                    <span>Paramètres du compte</span>
-                                </a>
-                            </li>
-                            <li>
-                                <hr className="dropdown-divider" />
-                            </li>
-
-                            <li>
-                                <a className="dropdown-item d-flex align-items-center" href="deconnexion.php">
+                            <li onClick={logout}>
+                                <a className="dropdown-item d-flex align-items-center" href="/">
                                     <i className="bi bi-box-arrow-right"></i>
                                     <span>Déconnexion</span>
                                 </a>

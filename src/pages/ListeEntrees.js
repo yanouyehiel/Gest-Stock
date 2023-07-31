@@ -11,7 +11,6 @@ function ListeEntrees() {
     const [nom, setNom] = useState('');
     const [prix, setPrix] = useState(0);
     const [qte, setQte] = useState(0);
-    const [desc, setDesc] = useState('');
     const [produits, setProduits] = useState([]);
     const [alert, setAlert] = useState(false);
     const [entrees, setEntrees] = useState([]);
@@ -50,7 +49,6 @@ function ListeEntrees() {
                 nom: nom,
                 prix: prix,
                 quantite: qte,
-                description: desc,
                 date: Date.now()
             })
             .then(() => {  
@@ -126,10 +124,6 @@ function ListeEntrees() {
                                                     <Form.Label>Entrer sa quantite</Form.Label>
                                                     <Form.Control type="number" onChange={(e) => setQte(e.target.value)} autoFocus />
                                                 </Form.Group>
-                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Quelque chose de particulier à dire sur cette vente ?</Form.Label>
-                                                    <Form.Control as="textarea" rows={3} onChange={(e) => setDesc(e.target.value)} autoFocus />
-                                                </Form.Group>
                                                 <Button variant="primary" type="submit">
                                                     Enregistrer
                                                 </Button>
@@ -144,7 +138,6 @@ function ListeEntrees() {
                                                 <th scope="col">Nom produit</th>
                                                 <th scope="col">Prix Unitaire</th>
                                                 <th scope="col">Quantite</th>
-                                                <th scope="col">Description</th>
                                                 <th scope="col">Date d'enregistrement</th>
                                             </tr>
                                         </thead>

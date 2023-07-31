@@ -9,9 +9,10 @@ import axios from "axios"
 
 function Produits() {
     const [data, setData] = useState([])
-    const [nom, setNom] = useState('')
-    const [stock, setStock] = useState(0)
-    const [description, setDescription] = useState('')
+    const [produit, setProduit] = useState({
+        nom: '',
+        date: 0
+    })
     const [show, setShow] = useState(false);
     const [alert, setAlert] = useState(false)
 
@@ -33,14 +34,17 @@ function Produits() {
         ;
     };
 
+    const handleChange = ({ currentTarget }) => {
+        const {name, value} = currentTarget;
+        setProduit({...produit, [name]: value})
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
         axios
             .post("http://localhost:3001/produits", {
-                nom: nom,
-                stock: stock,
-                description: description,
+                nom: produit.nom,
                 date: Date.now()
             })
             .then(() => {  
@@ -91,15 +95,7 @@ function Produits() {
                                             <Form onSubmit={handleSubmit}>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Entrer son nom</Form.Label>
-                                                    <Form.Control type="text" onChange={(e) => setNom(e.target.value)} value={nom} />
-                                                </Form.Group>
-                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Entrer sa quantite</Form.Label>
-                                                    <Form.Control type="number" onChange={(e) => setStock(e.target.value)} value={stock} autoFocus />
-                                                </Form.Group>
-                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Entrer une description si possible</Form.Label>
-                                                    <Form.Control as="textarea" rows={3} onChange={(e) => setDescription(e.target.value)} value={description} autoFocus />
+                                                    <Form.Control type="text" name='nom' onChange={handleChange} />
                                                 </Form.Group>
                                                 <Button type='submit' variant="primary">
                                                     Enregistrer
@@ -113,8 +109,7 @@ function Produits() {
                                             <tr>
                                                 <th>#</th>
                                                 <th scope="col">Nom produit</th>
-                                                <th scope="col">Description</th>
-                                                <th scope="col">Stock</th>
+                                                <th scope="col">Date d'enregistrement</th>
                                                 <th scope="col">Options</th>
                                             </tr>
                                         </thead>

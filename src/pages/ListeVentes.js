@@ -11,10 +11,10 @@ function ListeVentes() {
     const [nom, setNom] = useState('');
     const [prix, setPrix] = useState(0);
     const [qte, setQte] = useState(0);
-    //const [vendeur, setVendeur] = useState('');
     const [produits, setProduits] = useState([]);
     const [ventes, setVentes] = useState([]);
     const [alert, setAlert] = useState(false);
+    const vendeur = JSON.parse(window.localStorage.getItem('gest-stock'));
 
     const handleClose = () => {
         setShow(false);
@@ -50,7 +50,7 @@ function ListeVentes() {
                 nom: nom,
                 prix_unitaire: parseInt(prix),
                 quantite: parseInt(qte),
-                vendeur: 'Test User',
+                vendeur: vendeur.username,
                 date: Date.now()
             })
             .then(() => {  
@@ -98,7 +98,7 @@ function ListeVentes() {
                                     <h5 class="card-title">Visualiser toutes les ventes enregistrées</h5>
                                     
                                     <Button onClick={handleShow} variant="primary">
-                                        Enregistrer une entrée
+                                        Enregistrer une vente
                                     </Button>
 
                                     <Modal show={show} onHide={handleClose}>
@@ -164,7 +164,7 @@ function ListeVentes() {
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Récapitulatif</h5>
-                                <h5>Total produits vendus: <b>{ventes.length}</b></h5><hr/>
+                                <h5>Nombre de ventes: <b>{ventes.length}</b></h5><hr/>
                                 <h5>Total actuel: <b>{calcMontantTotal()} FCFA</b></h5><hr/>
                             </div>
                         </div>

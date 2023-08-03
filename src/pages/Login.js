@@ -15,7 +15,7 @@ function Login() {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        if (user != null && !error) {
+        if (user != null && error) {
             navigate('/home')
         } else {
             axios.get('https://www.oncheckcm.com/api-gest-stock/users.php')

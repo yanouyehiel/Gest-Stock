@@ -34,7 +34,7 @@ function ListeVentes() {
             navigate('/')
         }
         getDatas();
-    }, []);
+    }, [user]);
 
     const getProduits = () => {
         axios
@@ -103,7 +103,7 @@ function ListeVentes() {
                                         Enregistrer une vente
                                     </Button>
 
-                                    <Modal show={show} onHide={handleClose}>
+                                    <Modal show={show} onHide={handleClose} size="sm">
                                         <Modal.Header closeButton>
                                             <Modal.Title>Enregistrer une entrée</Modal.Title>
                                         </Modal.Header>

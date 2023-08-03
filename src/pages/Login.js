@@ -21,7 +21,7 @@ function Login() {
             axios.get('https://www.oncheckcm.com/api-gest-stock/users.php')
                 .then(res => setUsers(res.data))
         }
-    }, [])
+    }, [error])
     
     const handleChange = ({ currentTarget }) => {
         const {name, value} = currentTarget;
@@ -32,7 +32,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault()
         try {
-            users.map(u => {
+            users.map((u, index) => {
                 if (u.username === user.username && u.password === user.password) {
                     window.localStorage.setItem('gest-stock', JSON.stringify(user))
                     navigate('/home')
@@ -55,11 +55,11 @@ function Login() {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                            {/* <div className="d-flex justify-content-center py-4">
+                            <div className="d-flex justify-content-center py-4">
                                 <a href="/" className="logo d-flex align-items-center w-auto">
                                 <img src="./images/logo-oncheck.png" alt="Logo de GestStock" />
                                 </a>
-                            </div> */}
+                            </div>
 
                             <div className="card mb-3">
 

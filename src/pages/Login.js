@@ -9,12 +9,13 @@ function Login() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([])
     const savedUser = JSON.parse(window.localStorage.getItem('gest-stock'))
-    const [user, setUser] = useState(savedUser ? savedUser : {})
+    const [user, setUser] = useState(savedUser ? savedUser : null)
     const [loading, setLoading] = useState(false);
     const [messageBtn, setMessageBtn] = useState('Se Connecter')
+    const [error, setError] = useState(false)
 
     useEffect(() => {
-        if (user.username) {
+        if (user != null && !error) {
             navigate('/home')
         } else {
             axios.get('https://www.oncheckcm.com/api-gest-stock/users.php')
@@ -26,8 +27,7 @@ function Login() {
         const {name, value} = currentTarget;
         setUser({...user, [name]: value})
     }
-    console.log(user)
-    console.log(users)
+    
     
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -36,6 +36,9 @@ function Login() {
                 if (u.username === user.username && u.password === user.password) {
                     window.localStorage.setItem('gest-stock', JSON.stringify(user))
                     navigate('/home')
+                } else {
+                    setError(true)
+                    setMessageBtn('Réessayer !')
                 }
             })
             
@@ -43,7 +46,7 @@ function Login() {
             console.log('Erreur')
         }
         setLoading(true)
-        setMessageBtn('Conexion...')
+        setMessageBtn('Connexion...')
     }
 
     return (
@@ -96,6 +99,12 @@ function Login() {
                                                 {messageBtn}
                                             </Button>
                                         </div>
+
+                                        {error && 
+                                            <div className='col-12'>
+                                                <p style={{color: 'red', textAlign: 'center'}}>Identifiants incorrects !</p>
+                                            </div>
+                                        }
                                         
                                     </Form>
 

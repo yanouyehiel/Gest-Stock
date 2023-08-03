@@ -5,9 +5,10 @@ import Sidebar from "../components/Sidebar"
 import { Button, Modal, Form } from "react-bootstrap"
 import { useState, useEffect } from 'react'
 import axios from "axios"
-
+import { useNavigate } from "react-router-dom"
 
 function Produits() {
+    const navigate = useNavigate();
     const [data, setData] = useState([])
     const [produit, setProduit] = useState({
         nom: '',
@@ -16,6 +17,8 @@ function Produits() {
     const [show, setShow] = useState(false);
     const [alert, setAlert] = useState(false)
     const url_api = 'https://www.oncheckcm.com/api-gest-stock';
+    const savedUser = JSON.parse(window.localStorage.getItem('gest-stock'))
+    const user = savedUser ? savedUser : null
 
     const handleClose = () => {
         setShow(false);
@@ -25,6 +28,9 @@ function Produits() {
     }
 
     useEffect(() => {
+        if (user == null) {
+            navigate('/')
+        }
         getData();
     }, []);
 

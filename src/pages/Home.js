@@ -1,16 +1,28 @@
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Card, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import Message from "../components/Message";
+import { useNavigate, redirect } from "react-router-dom";
+import { useEffect } from "react";
 
 function Home() {
     const navigate = useNavigate();
+    const savedUser = JSON.parse(window.localStorage.getItem('gest-stock'))
+    const user = savedUser ? savedUser : null
+    
+    useEffect(() => {
+        
+        if (user == null) {
+            navigate('/')
+        }
+
+    }, [])
+    
 
     return (
         <body>
             <Header />
-                                                                                                                                                  <Sidebar />
+
+            <Sidebar />
 
             <main id="main" className="main">
 

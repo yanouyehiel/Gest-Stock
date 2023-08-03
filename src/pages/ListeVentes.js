@@ -5,8 +5,10 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AlertComponent from "../components/AlertComponent";
+import { useNavigate } from "react-router-dom";
 
 function ListeVentes() {
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [nom, setNom] = useState('');
     const [prix, setPrix] = useState(0);
@@ -16,6 +18,8 @@ function ListeVentes() {
     const [alert, setAlert] = useState(false);
     const vendeur = JSON.parse(window.localStorage.getItem('gest-stock'));
     const url_api = 'https://www.oncheckcm.com/api-gest-stock';
+    const savedUser = JSON.parse(window.localStorage.getItem('gest-stock'))
+    const user = savedUser ? savedUser : null
 
     const handleClose = () => {
         setShow(false);
@@ -26,6 +30,9 @@ function ListeVentes() {
     }
 
     useEffect(() => {
+        if (user == null) {
+            navigate('/')
+        }
         getDatas();
     }, []);
 

@@ -55,7 +55,7 @@ function Header() {
                             <li>
                                 <a className="dropdown-item d-flex align-items-center" href="/home">
                                     <i className="bi bi-person"></i>
-                                    <span>{user.username}</span>
+                                    <span>{user ? user.username : 'Inconnu'}</span>
                                 </a>
                             </li>
                             <li>

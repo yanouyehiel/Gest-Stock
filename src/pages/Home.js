@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <body>
-            <Header />+
+            <Header />
                                                                                                                                                   <Sidebar />
 
             <main id="main" className="main">

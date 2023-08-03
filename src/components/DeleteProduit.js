@@ -4,7 +4,7 @@ import axios from 'axios';
 function DeleteProduit({ id }) {
     const handleDelete = () => {
         console.log('reussi')
-        axios.delete("http://localhost:3001/produits/" + id);
+        axios.delete("https://www.oncheckcm.com/api-gest-stock/products.php" + id);
         window.location.reload();
     };
 

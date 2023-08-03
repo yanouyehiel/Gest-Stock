@@ -12,7 +12,7 @@ function Entree({entree}) {
         });
         return newDate;
     };
-
+    
     return (
         <>
             <tr>
@@ -21,7 +21,7 @@ function Entree({entree}) {
                 <td>{entree.prix} FCFA</td>
                 <td>{entree.quantite}</td>
                 <td>{entree.description}</td>
-                <td>{dateParser(entree.date)}</td>
+                <td>{dateParser(parseInt(entree.date))}</td>
             </tr>
         </>
     )

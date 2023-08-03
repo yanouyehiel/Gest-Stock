@@ -12,7 +12,8 @@ function Vente({vente}) {
         });
         return newDate;
     };
-
+    
+    
     return (
         <>
             <tr>
@@ -22,7 +23,7 @@ function Vente({vente}) {
                 <td>{vente.quantite}</td>
                 <td>{vente.prix_unitaire * vente.quantite} FCFA</td>
                 <td>{vente.vendeur}</td>
-                <td>{dateParser(vente.date)}</td>
+                <td>{dateParser(parseInt(vente.date))}</td>
             </tr>
         </>
     )

@@ -17,7 +17,7 @@ function Login() {
         if (user.username) {
             navigate('/home')
         } else {
-            axios.get('http://localhost:3001/users')
+            axios.get('https://www.oncheckcm.com/api-gest-stock/users.php')
                 .then(res => setUsers(res.data))
         }
     }, [])
@@ -26,6 +26,8 @@ function Login() {
         const {name, value} = currentTarget;
         setUser({...user, [name]: value})
     }
+    console.log(user)
+    console.log(users)
     
     const handleSubmit = (e) => {
         e.preventDefault()

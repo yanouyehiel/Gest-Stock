@@ -15,6 +15,7 @@ function ListeVentes() {
     const [ventes, setVentes] = useState([]);
     const [alert, setAlert] = useState(false);
     const vendeur = JSON.parse(window.localStorage.getItem('gest-stock'));
+    const url_api = 'https://www.oncheckcm.com/api-gest-stock';
 
     const handleClose = () => {
         setShow(false);
@@ -30,29 +31,23 @@ function ListeVentes() {
 
     const getProduits = () => {
         axios
-            .get('http://localhost:3001/produits')
+            .get(`${url_api}/products.php`)
             .then((res) => setProduits(res.data))
         ;
     };
 
     const getDatas = () => {
         axios
-            .get('http://localhost:3001/ventes')
+            .get(`${url_api}/products.php?vente=true`)
             .then((res) => setVentes(res.data))
         ;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-       
+        
         axios
-            .post("http://localhost:3001/ventes", {
-                nom: nom,
-                prix_unitaire: parseInt(prix),
-                quantite: parseInt(qte),
-                vendeur: vendeur.username,
-                date: Date.now()
-            })
+            .get(`${url_api}/products.php?nom=${nom}&prix_unitaire=${parseInt(prix)}&quantite=${parseInt(qte)}&vendeur=${vendeur.username}&date=${Date.now()}`)
             .then(() => {  
                 setAlert(true);
                 handleClose();
@@ -60,7 +55,7 @@ function ListeVentes() {
             }
         );
     }
-
+    
     const calcMontantTotal = () => {
         let total = 0;
 
@@ -148,8 +143,8 @@ function ListeVentes() {
                                         <tbody>
                                             {ventes
                                                 .sort((a, b) => b.date - a.date)
-                                                .map((vente) => (
-                                                    <Vente key={vente.id} vente={vente} />
+                                                .map((vente, index) => (
+                                                    <Vente key={index} vente={vente} />
                                                 ))
                                             }
                                         </tbody>

@@ -11,10 +11,11 @@ function Produits() {
     const [data, setData] = useState([])
     const [produit, setProduit] = useState({
         nom: '',
-        date: 0
+        date: Date.now()
     })
     const [show, setShow] = useState(false);
     const [alert, setAlert] = useState(false)
+    const url_api = 'https://www.oncheckcm.com/api-gest-stock';
 
     const handleClose = () => {
         setShow(false);
@@ -29,7 +30,7 @@ function Produits() {
 
     const getData = () => {
         axios
-            .get('http://localhost:3001/produits')
+            .get(`${url_api}/products.php`)
             .then((res) => setData(res.data))
         ;
     };
@@ -43,10 +44,7 @@ function Produits() {
         e.preventDefault();
         
         axios
-            .post("http://localhost:3001/produits", {
-                nom: produit.nom,
-                date: Date.now()
-            })
+            .get(`${url_api}/products.php?nom=${produit.nom}&date=${produit.date}`)
             .then(() => {  
                 setAlert(true);
                 handleClose();
@@ -116,8 +114,8 @@ function Produits() {
                                         <tbody>
                                         {data
                                             .sort((a, b) => b.date - a.date)
-                                            .map((produit) => (
-                                            <Produit key={produit.id} produit={produit} />
+                                            .map((produit, index) => (
+                                            <Produit key={index} produit={produit} />
                                         ))}
                                         </tbody>
                                     </table>

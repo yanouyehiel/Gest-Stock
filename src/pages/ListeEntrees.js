@@ -14,6 +14,7 @@ function ListeEntrees() {
     const [produits, setProduits] = useState([]);
     const [alert, setAlert] = useState(false);
     const [entrees, setEntrees] = useState([]);
+    const url_api = 'https://www.oncheckcm.com/api-gest-stock';
 
     const handleClose = () => {
         setShow(false);
@@ -29,14 +30,14 @@ function ListeEntrees() {
 
     const getProduits = () => {
         axios
-            .get('http://localhost:3001/produits')
+            .get(`${url_api}/products.php`)
             .then((res) => setProduits(res.data))
         ;
     };
 
     const getDatas = () => {
         axios
-            .get('http://localhost:3001/entrees')
+            .get(`${url_api}/products.php?entree=true`)
             .then((res) => setEntrees(res.data))
         ;
     };
@@ -45,12 +46,7 @@ function ListeEntrees() {
         e.preventDefault();
        
         axios
-            .post("http://localhost:3001/entrees", {
-                nom: nom,
-                prix: prix,
-                quantite: qte,
-                date: Date.now()
-            })
+            .get(`${url_api}/products.php?nom=${nom}&prix=${prix}&quantite=${qte}&date=${Date.now()}`)
             .then(() => {  
                 setAlert(true);
                 handleClose();

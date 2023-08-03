@@ -37,7 +37,19 @@ function Home() {
 
                 <section className="section dashboard">
                     <div className="row">
-                        
+                        <div className="col-lg-12">
+                            <div className="card">
+                                <Card className="text-center">
+                                    <Card.Body>
+                                        <Card.Title>Gerer les produits</Card.Title>
+                                        <Card.Text>
+                                            Enregistrer tous les produits arrivés
+                                        </Card.Text>
+                                        <Button variant="warning" onClick={() => navigate('/produits')}>Allez go !</Button>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </div>
                         <div className="col-lg-12">
                             <div className="card">
                                 <Card className="text-center">

@@ -15,7 +15,7 @@ function Login() {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        if (user != null && error) {
+        if (user != null && !error) {
             navigate('/home')
         } else {
             axios.get('https://www.oncheckcm.com/api-gest-stock/users.php')
@@ -55,11 +55,11 @@ function Login() {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                            <div className="d-flex justify-content-center py-4">
+                            {/* <div className="d-flex justify-content-center py-4">
                                 <a href="/" className="logo d-flex align-items-center w-auto">
                                 <img src="./images/logo-oncheck.png" alt="Logo de GestStock" />
                                 </a>
-                            </div>
+                            </div> */}
 
                             <div className="card mb-3">
 
